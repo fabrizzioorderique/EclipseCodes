@@ -5,6 +5,6 @@ public class TestClass {
 	}
 
 	private void doSomething() {
-		System.out.println("I did something");
+		System.out.println("I did something: I was initialized :)");
 	}
 }
