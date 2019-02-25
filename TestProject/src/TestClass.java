@@ -5,7 +5,7 @@ public class TestClass {
 	}
 
 	private void doSomething() {
-		System.out.println("I did something");
+		System.out.println("I did something: I was initialized :)");
 	}
 	private void countTo(int a) {
 		for(int i = a; i< 0;i--) {
