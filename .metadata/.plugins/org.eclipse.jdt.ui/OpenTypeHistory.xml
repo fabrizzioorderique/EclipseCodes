@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<typeInfoHistroy>
+    <typeInfo handle="=TestProject/C:\/Program Files\/Java\/jdk-11.0.2\/lib\/jrt-fs.jar`java.desktop&lt;javax.swing(JPanel.class[JPanel" modifiers="33" timestamp="1547608148117"/>
+    <typeInfo handle="=TestProject/C:\/Program Files\/Java\/jdk-11.0.2\/lib\/jrt-fs.jar`jdk.internal.vm.ci&lt;jdk.vm.ci.meta(PlatformKind$Key.class[Key" modifiers="1545" timestamp="1547608148117"/>
+    <typeInfo handle="=TestProject/C:\/Program Files\/Java\/jdk-11.0.2\/lib\/jrt-fs.jar`java.base&lt;java.lang(Runnable.class[Runnable" modifiers="1537" timestamp="1547608148117"/>
+    <typeInfo handle="=TestProject/C:\/Program Files\/Java\/jdk-11.0.2\/lib\/jrt-fs.jar`java.desktop&lt;java.awt.event(KeyListener.class[KeyListener" modifiers="1537" timestamp="1547608148117"/>
+    <typeInfo handle="=TestProject/C:\/Program Files\/Java\/jdk-11.0.2\/lib\/jrt-fs.jar`java.desktop&lt;java.awt.peer(KeyboardFocusManagerPeer.class[KeyboardFocusManagerPeer" modifiers="1537" timestamp="1547608148117"/>
+</typeInfoHistroy>
