@@ -11,6 +11,6 @@ public class TestRunner {
 		System.out.println((int)4.0); //4
 		System.out.println(1 + (double)3); //4.0
 		System.out.println(1+5.0); //6.0
-		System.out.println((int)Math.pow(2, 4)%3/(float)1.0); //1.0
+		System.out.println(Math.pow(2, 4)%3/(float)1.0); //1.0
 	}
 }
