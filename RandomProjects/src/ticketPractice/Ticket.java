@@ -1,4 +1,4 @@
-package RandProjectsPackage;
+package ticketPractice;
 
 public class Ticket {
 	private String myRow;
