@@ -11,7 +11,7 @@ public class Transactions {
 	}
 	private void fillTicketList() {
 		for(int i = 0; i < numOfTickets;i++) {
-			ticketList[i] = new Ticket("n/a",i,i*10);
+			ticketList[i] = new Ticket("n/a",i+1,(i+1)*10);
 		}
 	}
 }
