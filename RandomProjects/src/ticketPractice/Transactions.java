@@ -14,4 +14,9 @@ public class Transactions {
 			ticketList[i] = new Ticket("n/a",i+1,(i+1)*10);
 		}
 	}
+	private void fillTicketList(double price) {
+		for(int i = 0; i < numOfTickets;i++) {
+			ticketList[i] = new Ticket("n/a",i+(int)price,(i+price)*10);
+		}
+	}
 }
