@@ -44,10 +44,11 @@ public class SudokuRunner {
 				}
 			}
 		}
+		System.out.println("User Input Table:");
 	}
 	
 	//builds the simple sudoku puzzle thats saved with this src code
-	private static void buildBasicTable(){
+	private static void buildBasicTableOne(){
 		myTable = new int[][]{
 				{1,0,6,0,0,2,3,0,0},
 				{0,5,0,0,0,6,0,9,1},
@@ -61,13 +62,31 @@ public class SudokuRunner {
 		};
 	}
 	
+	//these next two methods fill in empty spaces if only one unknown in a row
+	private static void fillRow() {
+		int rowSum = 0, colSum = 0;
+		//iterates through all rows
+		for(int row = 0; row < myTable.length; row++) {
+			//gets sum for that row
+			for(int col = 0; col < myTable[row].length; col++) {
+				rowSum += myTable[row][col];
+				}
+			//inserts missing value
+			for(int col = 0; col < myTable[row].length; col++) {
+				if(myTable[row][col] == 0) {
+					myTable[row][col] = 45 - rowSum;
+				}
+			}
+			//resets the rowSum value to be used for next row
+			rowSum = 0;
+		}
+	}
+	
 	//main method
 	public static void main(String[] args) {
 		myTable = new int[9][9];
-		printTable(myTable);
-		userFillTable();
-		printTable(myTable);
-		buildBasicTable();
+		buildBasicTableOne();
+		fillRow();
 		printTable(myTable);
 	}
 	
