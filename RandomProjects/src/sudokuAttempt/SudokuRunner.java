@@ -61,6 +61,10 @@ public class SudokuRunner {
 		};
 	}
 	
+	//checks rows and cols for one empty spot and fills it
+	private static void finishRowCol() {
+	}
+	
 	//main method
 	public static void main(String[] args) {
 		myTable = new int[9][9];
