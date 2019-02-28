@@ -13,6 +13,7 @@ package sudokuAttempt;
  * 1) numbers 1 - 9 must fill a 9x9 grid
  * 2) rows and cols must contain diff nums
  * 3) 3x3 boxes must contain diff nums
+ * 
  */
 import javax.swing.JOptionPane;
 public class SudokuRunner {
@@ -44,10 +45,11 @@ public class SudokuRunner {
 				}
 			}
 		}
+		System.out.println("User Input Table:");
 	}
 	
-	//builds the simple sudoku puzzle thats saved with this src code
-	private static void buildBasicTable(){
+	//End goal of program: to solve this random Sudoku puzzle
+	private static void finalTableToSolve(){
 		myTable = new int[][]{
 				{1,0,6,0,0,2,3,0,0},
 				{0,5,0,0,0,6,0,9,1},
@@ -61,17 +63,72 @@ public class SudokuRunner {
 		};
 	}
 	
-	//checks rows and cols for one empty spot and fills it
-	private static void finishRowCol() {
+	//Uses the basic table outline to test program
+	private static void buildTestingTable(){
+		myTable = new int[][]{
+			{7,3,5,0,1,4,8,9,0},
+			{8,4,2,9,7,3,5,0,1},
+			{9,6,1,2,8,5,0,7,4},
+			{2,8,6,3,4,0,1,5,7},
+			{4,1,3,8,0,7,9,2,6},
+			{5,7,9,1,2,6,4,3,8},
+			{1,5,7,4,9,2,6,8,3},
+			{6,9,4,7,3,8,2,1,5},
+			{3,2,8,5,6,1,7,4,9},
+	};
+	}
+	
+	//resets the FINISHED basic table from png 2
+	private static void resetBasicTable() {
+		myTable = new int[][]{
+			{7,3,5,6,1,4,8,9,2},
+			{8,4,2,9,7,3,5,6,1},
+			{9,6,1,2,8,5,3,7,4},
+			{2,8,6,3,4,9,1,5,7},
+			{4,1,3,8,5,7,9,2,6},
+			{5,7,9,1,2,6,4,3,8},
+			{1,5,7,4,9,2,6,8,3},
+			{6,9,4,7,3,8,2,1,5},
+			{3,2,8,5,6,1,7,4,9},
+		};
+	}
+	
+	//these next two methods fill in empty spaces if only one unknown in a row
+	private static void fillRows() {
+		int rowSum = 0, zeroCount = 0;
+		//iterates through all rows
+		for(int row = 0; row < myTable.length; row++) {
+			//gets sum for that row
+			for(int col = 0; col < myTable[row].length; col++) {
+				rowSum += myTable[row][col];
+				if(myTable[row][col] == 0) {
+						zeroCount++;
+					}
+				}
+			//inserts missing value only if there is one missing value
+			if(zeroCount == 0) {
+				System.out.println("Row "+(row+1)+ " is done");
+			}else if(zeroCount == 1) {
+				for(int col = 0; col < myTable[row].length; col++) {
+					if(myTable[row][col] == 0) {
+						myTable[row][col] = 45 - rowSum;
+					}
+				}
+			}else{
+				System.out.println("Row "+(row+1)+ " has " +zeroCount+ " unknowns");
+			}
+			//resets the rowSum and zeroCount value to be used for next row
+			rowSum = 0;
+			zeroCount = 0;
+		}
 	}
 	
 	//main method
 	public static void main(String[] args) {
 		myTable = new int[9][9];
+		buildTestingTable();
 		printTable(myTable);
-		userFillTable();
-		printTable(myTable);
-		buildBasicTable();
+		fillRows();
 		printTable(myTable);
 	}
 	
