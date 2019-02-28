@@ -66,16 +66,16 @@ public class SudokuRunner {
 	//Uses the basic table outline to test program
 	private static void buildTestingTable(){
 		myTable = new int[][]{
-			{7,3,5,0,1,4,8,9,0},
-			{8,4,2,9,7,3,5,0,1},
+			{7,3,5,0,1,4,8,9,2},
+			{8,4,2,0,7,3,5,0,1},
 			{9,6,1,2,8,5,0,7,4},
 			{2,8,6,3,4,0,1,5,7},
 			{4,1,3,8,0,7,9,2,6},
 			{5,7,9,1,2,6,4,3,8},
 			{1,5,7,4,9,2,6,8,3},
-			{6,9,4,7,3,8,2,1,5},
+			{6,9,0,7,3,8,2,0,5},
 			{3,2,8,5,6,1,7,4,9},
-	};
+		};
 	}
 	
 	//resets the FINISHED basic table from png 2
@@ -155,9 +155,18 @@ public class SudokuRunner {
 	//main method
 	public static void main(String[] args) {
 		myTable = new int[9][9];
+		System.out.println("Input Table:");
 		buildTestingTable();
 		printTable(myTable);
+		
 		fillRows();
+		printTable(myTable);
+		fillCols();
+		printTable(myTable);
+		
+		fillRows();
+		printTable(myTable);
+		fillCols();
 		printTable(myTable);
 	}
 	
