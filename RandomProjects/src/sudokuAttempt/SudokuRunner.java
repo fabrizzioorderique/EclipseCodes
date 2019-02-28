@@ -27,17 +27,18 @@ public class SudokuRunner {
 			}
 			System.out.println();
 		}
+		System.out.println();
 	}
 	
 	//user inputs each individual table value
 	private static void userFillTable() {
-		JOptionPane.showMessageDialog(null,"Instructions: fill in the table from left to right, top to bottom.\nType exit if you want to leave");
+		JOptionPane.showMessageDialog(null,"Instructions: fill in the table from left to right, top to bottom.\nType quit if you want to leave");
 		String input  = "";
 		for(int row = 0; row < myTable.length; row++) {
 			for(int col = 0; col < myTable[row].length; col++) {
 				input = JOptionPane.showInputDialog("Value at row "+(row+1)+" col "+ (col +1)+":");
 				if(input.equals("quit") || input.equals("Quit") || input.equals("QUIT")) {
-					System.exit(0);
+					return;
 				}else{
 					myTable[row][col] = Integer.parseInt(input);
 				}
@@ -45,12 +46,29 @@ public class SudokuRunner {
 		}
 	}
 	
+	//builds the simple sudoku puzzle thats saved with this src code
+	private static void buildBasicTable(){
+		myTable = new int[][]{
+				{1,0,6,0,0,2,3,0,0},
+				{0,5,0,0,0,6,0,9,1},
+				{0,0,9,5,0,1,4,6,2},
+				{0,3,7,9,0,5,0,0,0},
+				{5,8,1,0,2,7,9,0,0},
+				{0,0,0,4,0,8,1,5,7},
+				{0,0,0,2,6,0,5,4,0},
+				{0,0,4,1,5,0,6,0,9},
+				{9,0,0,8,7,4,2,1,0},
+		};
+	}
+	
 	//main method
 	public static void main(String[] args) {
 		myTable = new int[9][9];
 		printTable(myTable);
 		userFillTable();
-		printTable(myTable);		
+		printTable(myTable);
+		buildBasicTable();
+		printTable(myTable);
 	}
 	
 }
