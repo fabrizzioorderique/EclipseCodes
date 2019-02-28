@@ -48,7 +48,7 @@ public class SudokuRunner {
 		System.out.println("User Input Table:");
 	}
 	
-	//builds the simple sudoku puzzle thats saved with this src code
+	//End goal of program: to solve this random Sudoku puzzle
 	private static void finalTableToSolve(){
 		myTable = new int[][]{
 				{1,0,6,0,0,2,3,0,0},
@@ -63,10 +63,10 @@ public class SudokuRunner {
 		};
 	}
 	
-	//builds the simple sudoku puzzle thats saved with this src code
-	private static void buildBasicTable(){
+	//Uses the basic table outline to test program
+	private static void buildTestingTable(){
 		myTable = new int[][]{
-			{7,3,5,6,1,4,8,9,0},
+			{7,3,5,0,1,4,8,9,0},
 			{8,4,2,9,7,3,5,0,1},
 			{9,6,1,2,8,5,0,7,4},
 			{2,8,6,3,4,0,1,5,7},
@@ -101,23 +101,32 @@ public class SudokuRunner {
 			//gets sum for that row
 			for(int col = 0; col < myTable[row].length; col++) {
 				rowSum += myTable[row][col];
-			//	System.out.println("rowSum value for row "+row+" col "+col+" :"+rowSum);
-				}
-			//inserts missing value
-			for(int col = 0; col < myTable[row].length; col++) {
 				if(myTable[row][col] == 0) {
-					myTable[row][col] = 45 - rowSum;
+						zeroCount++;
+					}
 				}
+			//inserts missing value only if there is one missing value
+			if(zeroCount == 0) {
+				System.out.println("Row "+(row+1)+ " is done");
+			}else if(zeroCount == 1) {
+				for(int col = 0; col < myTable[row].length; col++) {
+					if(myTable[row][col] == 0) {
+						myTable[row][col] = 45 - rowSum;
+					}
+				}
+			}else{
+				System.out.println("Row "+(row+1)+ " has " +zeroCount+ " unknowns");
 			}
-			//resets the rowSum value to be used for next row
+			//resets the rowSum and zeroCount value to be used for next row
 			rowSum = 0;
+			zeroCount = 0;
 		}
 	}
 	
 	//main method
 	public static void main(String[] args) {
 		myTable = new int[9][9];
-		buildBasicTable();
+		buildTestingTable();
 		printTable(myTable);
 		fillRow();
 		printTable(myTable);
