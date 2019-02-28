@@ -63,7 +63,6 @@ public class SudokuRunner {
 		};
 	}
 	
-<<<<<<< HEAD
 	//Uses the basic table outline to test program
 	private static void buildTestingTable(){
 		myTable = new int[][]{
@@ -122,39 +121,6 @@ public class SudokuRunner {
 			rowSum = 0;
 			zeroCount = 0;
 		}
-	}
-	
-	private static void fillCols() {
-		int colSum = 0, zeroCount = 0;
-		//iterates through all the columns
-		for(int col = 0; col < myTable[0].length; col++) {
-			//gets sum for that column
-			for(int row = 0; row < myTable.length; row++) {
-				colSum += myTable[row][col];
-				if(myTable[row][col] == 0) {
-					zeroCount++;
-				}
-			}
-			//inserts missing value if only one unknown
-			if(zeroCount == 0) {
-				System.out.println("Column "+(col+1)+" is done");
-			}else if(zeroCount == 1) {
-				for(int row = 0; row < myTable.length; row++) {
-					if(myTable[row][col] == 0) {
-						myTable[row][col] = 45 - colSum;
-					}
-				}
-			}else {
-				System.out.println("Column "+(col+1)+" has "+zeroCount+" unknowns");
-			}
-			//resets the colSum and zeroCount for the next column
-			colSum = 0;
-			zeroCount = 0;
-		}
-=======
-	//checks rows and cols for one empty spot and fills it
-	private static void finishRowCol() {
->>>>>>> master
 	}
 	
 	//main method
