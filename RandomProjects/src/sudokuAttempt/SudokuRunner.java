@@ -90,11 +90,11 @@ public class SudokuRunner {
 			{1,5,7,4,9,2,6,8,3},
 			{6,9,4,7,3,8,2,1,5},
 			{3,2,8,5,6,1,7,4,9},
-	};
+		};
 	}
 	
 	//these next two methods fill in empty spaces if only one unknown in a row
-	private static void fillRow() {
+	private static void fillRows() {
 		int rowSum = 0, zeroCount = 0;
 		//iterates through all rows
 		for(int row = 0; row < myTable.length; row++) {
@@ -114,12 +114,41 @@ public class SudokuRunner {
 		}
 	}
 	
+	private static void fillCols() {
+		int colSum = 0, zeroCount = 0;
+		//iterates through all the columns
+		for(int col = 0; col < myTable[0].length; col++) {
+			//gets sum for that column
+			for(int row = 0; row < myTable.length; row++) {
+				colSum += myTable[row][col];
+				if(myTable[row][col] == 0) {
+					zeroCount++;
+				}
+			}
+			//inserts missing value if only one unknown
+			if(zeroCount == 0) {
+				System.out.println("Column "+(col+1)+" is done");
+			}else if(zeroCount == 1) {
+				for(int row = 0; row < myTable.length; row++) {
+					if(myTable[row][col] == 0) {
+						myTable[row][col] = 45 - colSum;
+					}
+				}
+			}else {
+				System.out.println("Column "+(col+1)+" has "+zeroCount+" unknowns");
+			}
+			//resets the colSum and zeroCount for the next column
+			colSum = 0;
+			zeroCount = 0;
+		}
+	}
+	
 	//main method
 	public static void main(String[] args) {
 		myTable = new int[9][9];
 		buildBasicTable();
 		printTable(myTable);
-		fillRow();
+		fillRows();
 		printTable(myTable);
 	}
 	
