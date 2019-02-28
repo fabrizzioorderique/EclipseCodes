@@ -63,6 +63,7 @@ public class SudokuRunner {
 		};
 	}
 	
+<<<<<<< HEAD
 	//Uses the basic table outline to test program
 	private static void buildTestingTable(){
 		myTable = new int[][]{
@@ -150,6 +151,10 @@ public class SudokuRunner {
 			colSum = 0;
 			zeroCount = 0;
 		}
+=======
+	//checks rows and cols for one empty spot and fills it
+	private static void finishRowCol() {
+>>>>>>> master
 	}
 	
 	//main method
