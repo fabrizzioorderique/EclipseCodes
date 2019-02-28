@@ -62,6 +62,21 @@ public class SudokuRunner {
 		};
 	}
 	
+	//builds the simple sudoku puzzle thats saved with this src code
+	private static void buildBasicTableTwo(){
+		myTable = new int[][]{
+				{7,3,5,6,1,4,8,9,2},
+				{8,4,2,3,7,3,5,6,1},
+				{9,6,1,2,8,5,3,7,4},
+				{2,8,6,3,4,9,1,5,7},
+				{4,1,3,8,5,7,9,2,6},
+				{5,7,9,1,2,6,4,3,8},
+				{1,5,7,4,9,2,6,8,3},
+				{6,9,4,7,3,8,2,1,5},
+				{3,2,8,5,6,1,7,4,9},
+		};
+	}
+	
 	//these next two methods fill in empty spaces if only one unknown in a row
 	private static void fillRow() {
 		int rowSum = 0, colSum = 0;
