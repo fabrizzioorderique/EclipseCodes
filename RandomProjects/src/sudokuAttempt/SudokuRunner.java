@@ -11,7 +11,7 @@ package sudokuAttempt;
  *
  * Game Requirements:
  * 1) numbers 1 - 9 must fill a 9x9 grid
- * 2) rows and cols must contained diff nums
+ * 2) rows and cols must contain diff nums
  * 3) 3x3 boxes must contain diff nums
  */
 import javax.swing.JOptionPane;
@@ -19,7 +19,7 @@ public class SudokuRunner {
 	//class variables
 	private static int[][] myTable;
 	
-	//method for printing the table at a current time
+	//method for printing the table at a current state
 	private static void printTable(int[][] table) {
 		for(int row = 0; row < table.length; row++) {
 			for(int col = 0; col < table[row].length; col++) {
@@ -32,10 +32,15 @@ public class SudokuRunner {
 	//user inputs each individual table value
 	private static void userFillTable() {
 		JOptionPane.showMessageDialog(null,"Instructions: fill in the table from left to right, top to bottom.\nType exit if you want to leave");
+		String input  = "";
 		for(int row = 0; row < myTable.length; row++) {
 			for(int col = 0; col < myTable[row].length; col++) {
-				String input = JOptionPane.showInputDialog("Value at row "+(row+1)+" col "+ (col +1)+":");
-				myTable[row][col] = Integer.parseInt(input);
+				input = JOptionPane.showInputDialog("Value at row "+(row+1)+" col "+ (col +1)+":");
+				if(input.equals("quit") || input.equals("Quit") || input.equals("QUIT")) {
+					System.exit(0);
+				}else{
+					myTable[row][col] = Integer.parseInt(input);
+				}
 			}
 		}
 	}
@@ -45,9 +50,7 @@ public class SudokuRunner {
 		myTable = new int[9][9];
 		printTable(myTable);
 		userFillTable();
-		printTable(myTable);
-		//trying to make a method for initializing table elements
-		
+		printTable(myTable);		
 	}
 	
 }
