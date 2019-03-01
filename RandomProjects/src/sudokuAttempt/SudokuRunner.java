@@ -22,7 +22,6 @@ public class SudokuRunner {
 	
 	//method for printing the table at a current state
 	private static void printTable(int[][] table) {
-		System.out.println("Input Table:");
 		for(int row = 0; row < table.length; row++) {
 			for(int col = 0; col < table[row].length; col++) {
 				System.out.print(table[row][col] + " ");
@@ -50,7 +49,8 @@ public class SudokuRunner {
 	}
 	
 	//End goal of program: to solve this random Sudoku puzzle
-	private static void finalTableToSolve(){
+	private static void buildFinalTableToSolve(){
+		System.out.println("Input Table:");
 		myTable = new int[][]{
 				{1,0,6,0,0,2,3,0,0},
 				{0,5,0,0,0,6,0,9,1},
@@ -62,10 +62,12 @@ public class SudokuRunner {
 				{0,0,4,1,5,0,6,0,9},
 				{9,0,0,8,7,4,2,1,0},
 		};
+		printTable(myTable);
 	}
 	
 	//Uses the basic table outline to test program
 	private static void buildTestingTable(){
+		System.out.println("Input Table:");
 		myTable = new int[][]{
 			{7,3,5,0,1,4,8,9,2},
 			{8,4,2,0,7,3,5,0,1},
@@ -77,10 +79,12 @@ public class SudokuRunner {
 			{6,9,0,7,3,8,2,0,5},
 			{3,2,8,5,6,1,7,4,9},
 		};
+		printTable(myTable);
 	}
 	
 	//resets the FINISHED basic table from png 2
 	private static void resetBasicTable() {
+		System.out.println("Basic Table:");
 		myTable = new int[][]{
 			{7,3,5,6,1,4,8,9,2},
 			{8,4,2,9,7,3,5,6,1},
@@ -92,6 +96,7 @@ public class SudokuRunner {
 			{6,9,4,7,3,8,2,1,5},
 			{3,2,8,5,6,1,7,4,9},
 		};
+		printTable(myTable);
 	}
 	
 	//fill in empty spaces in a row with one unknown
@@ -156,21 +161,30 @@ public class SudokuRunner {
 			}
 		}
 	
+	//method for filling in singular values more than once
+	private static void fillRowsAndCols(String side, int times) {
+		if(side.equals("row")) {
+			for(int i = 0; i < times; i++) {
+				fillRows();
+				printTable(myTable);
+				fillCols();
+				printTable(myTable);
+			}
+		}else if(side.equals("col")) {
+			for(int i = 0; i < times; i++) {
+				fillCols();
+				printTable(myTable);
+				fillRows();
+				printTable(myTable);
+			}
+		}else {
+			System.out.println("input error on fillRowsAndCols method");
+		}
+	}
 	//main method
 	public static void main(String[] args) {
-		myTable = new int[9][9];
 		buildTestingTable();
-		printTable(myTable);
-		
-		fillRows();
-		printTable(myTable);
-		fillCols();
-		printTable(myTable);
-		
-		fillRows();
-		printTable(myTable);
-		fillCols();
-		printTable(myTable);
+		fillRowsAndCols("row",2);
 	}
 	
 }
