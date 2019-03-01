@@ -22,6 +22,7 @@ public class SudokuRunner {
 	
 	//method for printing the table at a current state
 	private static void printTable(int[][] table) {
+		System.out.println("Input Table:");
 		for(int row = 0; row < table.length; row++) {
 			for(int col = 0; col < table[row].length; col++) {
 				System.out.print(table[row][col] + " ");
@@ -93,7 +94,7 @@ public class SudokuRunner {
 		};
 	}
 	
-	//these next two methods fill in empty spaces if only one unknown in a row
+	//fill in empty spaces in a row with one unknown
 	private static void fillRows() {
 		int rowSum = 0, zeroCount = 0;
 		//iterates through all rows
@@ -112,6 +113,7 @@ public class SudokuRunner {
 				for(int col = 0; col < myTable[row].length; col++) {
 					if(myTable[row][col] == 0) {
 						myTable[row][col] = 45 - rowSum;
+						System.out.println("Row "+(row+1)+ " has been fixed");						
 					}
 				}
 			}else{
@@ -123,6 +125,7 @@ public class SudokuRunner {
 		}
 	}
 	
+	//fill in empty spaces in a column with one unknown
 	private static void fillCols() {
 		int colSum = 0, zeroCount = 0;
 		//iterates through all the columns
@@ -141,6 +144,7 @@ public class SudokuRunner {
 				for(int row = 0; row < myTable.length; row++) {
 					if(myTable[row][col] == 0) {
 						myTable[row][col] = 45 - colSum;
+						System.out.println("Column "+(col+1)+" has been fixed");
 					}
 				}
 			}else {
@@ -155,7 +159,6 @@ public class SudokuRunner {
 	//main method
 	public static void main(String[] args) {
 		myTable = new int[9][9];
-		System.out.println("Input Table:");
 		buildTestingTable();
 		printTable(myTable);
 		
