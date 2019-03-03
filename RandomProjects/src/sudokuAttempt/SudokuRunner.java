@@ -4,6 +4,8 @@ package sudokuAttempt;
  * that takes in puzzles and solves them
  * @author fabri
  * @date 27 February 2019
+ * @version 1.0
+ * @status FAILED
  * 
  * Program Requirements:
  * 1) takes in user input to actually have a puzzle to solve
@@ -16,10 +18,11 @@ package sudokuAttempt;
  * 
  */
 import javax.swing.JOptionPane;
+import java.util.ArrayList;
 public class SudokuRunner {
 	//class variables
 	private static int[][] myTable;
-	
+	private static int[][] grid1, grid2, grid3, grid4, grid5, grid6, grid7, grid8, grid9; //left to right, top to bottom
 	//method for printing the table at a current state
 	private static void printTable(int[][] table) {
 		for(int row = 0; row < table.length; row++) {
@@ -32,7 +35,7 @@ public class SudokuRunner {
 	}
 	
 	//user inputs each individual table value
-	private static void userFillTable() {
+	private static void userBuildTable() {
 		JOptionPane.showMessageDialog(null,"Instructions: fill in the table from left to right, top to bottom.\nType quit if you want to leave");
 		String input  = "";
 		for(int row = 0; row < myTable.length; row++) {
@@ -46,6 +49,7 @@ public class SudokuRunner {
 			}
 		}
 		System.out.println("User Input Table:");
+		printTable(myTable);
 	}
 	
 	//End goal of program: to solve this random Sudoku puzzle
@@ -73,11 +77,11 @@ public class SudokuRunner {
 			{8,4,2,0,7,3,5,0,1},
 			{9,6,1,2,8,5,0,7,4},
 			{2,8,6,3,4,0,1,5,7},
-			{4,1,3,8,0,7,9,2,6},
+			{0,1,3,8,0,7,9,2,6},
 			{5,7,9,1,2,6,4,3,8},
-			{1,5,7,4,9,2,6,8,3},
+			{1,0,7,4,9,2,6,8,3},
 			{6,9,0,7,3,8,2,0,5},
-			{3,2,8,5,6,1,7,4,9},
+			{0,2,8,5,0,1,7,4,9},
 		};
 		printTable(myTable);
 	}
@@ -181,10 +185,263 @@ public class SudokuRunner {
 			System.out.println("input error on fillRowsAndCols method");
 		}
 	}
+	
+	//fills the individual 3x3 grids that make up the bigger puzzle
+	private static void buildGrids() {
+		grid1 = grid2 = grid3 = grid4 = grid5 = grid6 = grid7 = grid8 = grid9 = new int[3][3];
+		for(int row = 0; row < 3; row++) {
+			for (int col = 0; col < 3; col++) {
+				grid1[row][col] = myTable[row][col];
+			}
+		}
+		for(int row = 0; row < 3; row++) {
+			for (int col = 3; col < 6; col++) {
+				grid2[row][col] = myTable[row][col];
+			}
+		}
+		for(int row = 0; row < 3; row++) {
+			for (int col = 6; col < 9; col++) {
+				grid3[row][col] = myTable[row][col];
+			}
+		}
+		for(int row = 3; row < 6; row++) {
+			for (int col = 0; col < 3; col++) {
+				grid4[row][col] = myTable[row][col];
+			}
+		}
+		for(int row = 3; row < 6; row++) {
+			for (int col = 3; col < 6; col++) {
+				grid5[row][col] = myTable[row][col];
+			}
+		}
+		for(int row = 3; row < 6; row++) {
+			for (int col = 6; col < 9; col++) {
+				grid6[row][col] = myTable[row][col];
+			}
+		}
+		for(int row = 6; row < 9; row++) {
+			for (int col = 0; col < 3; col++) {
+				grid7[row][col] = myTable[row][col];
+			}
+		}
+		for(int row = 6; row < 9; row++) {
+			for (int col = 3; col < 6; col++) {
+				grid8[row][col] = myTable[row][col];
+			}
+		}
+		for(int row = 6; row < 9; row++) {
+			for (int col = 6; col < 9; col++) {
+				grid9[row][col] = myTable[row][col];
+			}
+		}
+	}
+	
+	//fills in 3x3 grids with only one unknown
+	private static void fillGrids() {
+		int gridSum = 0, zeroCount = 0;
+		for(int row = 0; row < 3; row++) {
+			for (int col = 0; col < 3; col++) {
+				gridSum += myTable[row][col];
+				if(myTable[row][col] == 0) {
+					zeroCount++;
+				}
+			}
+			if(zeroCount == 0) {
+				System.out.println("Grid1 is done");
+			}else if(zeroCount == 1) {
+				for(int col = 0; col < 3; col++) {
+					if(myTable[row][col] == 0) {
+						myTable[row][col] = 45 - gridSum;
+						System.out.println("Grid1 has been fixed");						
+					}
+				}
+			}else{
+				System.out.println("Grid1 has " +zeroCount+ " unknowns");
+			}
+			gridSum = zeroCount = 0;
+		}
+		for(int row = 0; row < 3; row++) {
+			for (int col = 3; col < 6; col++) {
+				gridSum += myTable[row][col];
+				if(myTable[row][col] == 0) {
+					zeroCount++;
+				}
+			}
+			if(zeroCount == 0) {
+				System.out.println("Grid2 is done");
+			}else if(zeroCount == 1) {
+				for(int col = 3; col < 6; col++) {
+					if(myTable[row][col] == 0) {
+						myTable[row][col] = 45 - gridSum;
+						System.out.println("Grid2 has been fixed");						
+					}
+				}
+			}else{
+				System.out.println("Grid2 has " +zeroCount+ " unknowns");
+			}
+			gridSum = zeroCount = 0;
+		}
+		for(int row = 0; row < 3; row++) {
+			for (int col = 6; col < 9; col++) {
+				gridSum += myTable[row][col];
+				if(myTable[row][col] == 0) {
+					zeroCount++;
+				}
+			}
+			if(zeroCount == 0) {
+				System.out.println("Grid3 is done");
+			}else if(zeroCount == 1) {
+				for(int col = 6; col < 9; col++) {
+					if(myTable[row][col] == 0) {
+						myTable[row][col] = 45 - gridSum;
+						System.out.println("Grid3 has been fixed");						
+					}
+				}
+			}else{
+				System.out.println("Grid3 has " +zeroCount+ " unknowns");
+			}
+			gridSum = zeroCount = 0;
+		}
+		for(int row = 3; row < 6; row++) {
+			for (int col = 0; col < 3; col++) {
+				gridSum += myTable[row][col];
+				if(myTable[row][col] == 0) {
+					zeroCount++;
+				}
+			}
+			if(zeroCount == 0) {
+				System.out.println("Grid4 is done");
+			}else if(zeroCount == 1) {
+				for(int col = 0; col < 3; col++) {
+					if(myTable[row][col] == 0) {
+						myTable[row][col] = 45 - gridSum;
+						System.out.println("Grid4 has been fixed");						
+					}
+				}
+			}else{
+				System.out.println("Grid4 has " +zeroCount+ " unknowns");
+			}
+			gridSum = zeroCount = 0;
+		}
+		for(int row = 3; row < 6; row++) {
+			for (int col = 3; col < 6; col++) {
+				gridSum += myTable[row][col];
+				if(myTable[row][col] == 0) {
+					zeroCount++;
+				}
+			}
+			if(zeroCount == 0) {
+				System.out.println("Grid5 is done");
+			}else if(zeroCount == 1) {
+				for(int col = 3; col < 6; col++) {
+					if(myTable[row][col] == 0) {
+						myTable[row][col] = 45 - gridSum;
+						System.out.println("Grid5 has been fixed");						
+					}
+				}
+			}else{
+				System.out.println("Grid5 has " +zeroCount+ " unknowns");
+			}
+			gridSum = zeroCount = 0;
+		}
+		for(int row = 3; row < 6; row++) {
+			for (int col = 6; col < 9; col++) {
+				gridSum += myTable[row][col];
+				if(myTable[row][col] == 0) {
+					zeroCount++;
+				}
+			}
+			if(zeroCount == 0) {
+				System.out.println("Grid6 is done");
+			}else if(zeroCount == 1) {
+				for(int col = 6; col < 9; col++) {
+					if(myTable[row][col] == 0) {
+						myTable[row][col] = 45 - gridSum;
+						System.out.println("Grid6 has been fixed");						
+					}
+				}
+			}else{
+				System.out.println("Grid6 has " +zeroCount+ " unknowns");
+			}
+			gridSum = zeroCount = 0;
+		}
+		for(int row = 6; row < 9; row++) {
+			for (int col = 0; col < 3; col++) {
+				gridSum += myTable[row][col];
+				if(myTable[row][col] == 0) {
+					zeroCount++;
+				}
+			}
+			if(zeroCount == 0) {
+				System.out.println("Grid7 is done");
+			}else if(zeroCount == 1) {
+				for(int col = 0; col < 3; col++) {
+					if(myTable[row][col] == 0) {
+						myTable[row][col] = 45 - gridSum;
+						System.out.println("Grid7 has been fixed");						
+					}
+				}
+			}else{
+				System.out.println("Grid7 has " +zeroCount+ " unknowns");
+			}
+			gridSum = zeroCount = 0;
+		}
+		for(int row = 6; row < 9; row++) {
+			for (int col = 3; col < 6; col++) {
+				gridSum += myTable[row][col];
+				if(myTable[row][col] == 0) {
+					zeroCount++;
+				}
+			}
+			if(zeroCount == 0) {
+				System.out.println("Grid8 is done");
+			}else if(zeroCount == 1) {
+				for(int col = 3; col < 6; col++) {
+					if(myTable[row][col] == 0) {
+						myTable[row][col] = 45 - gridSum;
+						System.out.println("Grid8 has been fixed");						
+					}
+				}
+			}else{
+				System.out.println("Grid8 has " +zeroCount+ " unknowns");
+			}
+			gridSum = zeroCount = 0;
+		}
+		for(int row = 6; row < 9; row++) {
+			for (int col = 6; col < 9; col++) {
+				gridSum += myTable[row][col];
+				if(myTable[row][col] == 0) {
+					zeroCount++;
+				}
+			}
+			if(zeroCount == 0) {
+				System.out.println("Grid9 is done");
+			}else if(zeroCount == 1) {
+				for(int col = 6; col < 9; col++) {
+					if(myTable[row][col] == 0) {
+						myTable[row][col] = 45 - gridSum;
+						System.out.println("Grid9 has been fixed");						
+					}
+				}
+			}else{
+				System.out.println("Grid9 has " +zeroCount+ " unknowns");
+			}
+			gridSum = zeroCount = 0;
+		}
+	}
+	
+	private static void fillAll(int times) {
+		for(int i = 0; i < times; i++) {
+			fillRowsAndCols("row",1);
+			fillGrids();
+			fillRowsAndCols("col",1);
+		}
+	}
 	//main method
 	public static void main(String[] args) {
 		buildTestingTable();
-		fillRowsAndCols("row",2);
+		fillGrids();
+		printTable(myTable);
 	}
 	
 }
