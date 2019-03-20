@@ -12,6 +12,9 @@ public class CspSudoku {
 	//This is the board that is actually going to get solved:
 	private static int[][] board = new int[9][9];
 	
+	//iteration counter (just for user to see)
+	private static int iterNum;
+	
 	//This is just a stored table that can be set to board
 	private static int[][] testTable = new int[][]{
 		{1,0,6,0,0,2,3,0,0},
@@ -26,10 +29,11 @@ public class CspSudoku {
 	};
 	
 	// Just in case i need to print the table out at a certain point
-	private static void printBoard(int[][] table) {
-		for(int row = 0; row < table.length; row++) {
-			for(int col = 0; col < table[row].length; col++) {
-				System.out.print(table[row][col] + " ");
+	private static void printBoard() {
+		System.out.println("Board to Solve:");
+		for(int row = 0; row < board.length; row++) {
+			for(int col = 0; col < board[row].length; col++) {
+				System.out.print(board[row][col] + " ");
 			}
 			System.out.println();
 		}
@@ -80,24 +84,36 @@ public class CspSudoku {
 		return true;
 	}
 
-	
 	//backtracking solving method
-	private static void solveBoard(int[][] table) {
+	private static void solveBoard() {
 		//iterates through the entire board
 		for (int row = 0; row < 9; row++) {
 			for(int col = 0; col < 9; col++) {
 				//finds an empty cell
-				if(table[row][col] == 0) {
+				if(board[row][col] == 0) {
 					//test all numbers, 1 through 9
 					for(int n = 1; n <=9; n++) {
-						//checks to see if the number meets the constraints
+						//checks to see if the number meets the constraints and places the number in the cell
 						if(isNotInRow(n, row) && isNotInCol(n, col) && isNotInSubBoard(n, row, col)) {
-							
+							board[row][col] = n;
+							//now starts the process over again
+							solveBoard();
 						}
 					}
 				}
 			}
 		}
+		//adds one for every iteration
+		iterNum++;
+	}
+	
+	public static void main(String[] args) {
+		iterNum = 0;
+		makeBoard(testTable);
+		printBoard();
+		solveBoard();
+		printBoard();
+		System.out.println("Number of iterations: "+ iterNum);
 	}
 	
 }
