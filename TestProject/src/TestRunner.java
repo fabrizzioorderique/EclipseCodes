@@ -10,5 +10,6 @@ public class TestRunner {
 			x++;
 			System.out.println(x);
 		}while(x>10);
+		System.out.println(0%3);
 	}
 }

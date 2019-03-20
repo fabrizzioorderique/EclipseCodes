@@ -2822,3 +2822,37 @@ user global configuration and to define the default location to store repositori
 not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
 EGit might behave differently since they see different configuration options.
 This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.equinox.p2.engine 4 4 2019-03-20 09:28:06.618
+!MESSAGE An error occurred while collecting items to be installed
+!SUBENTRY 1 org.eclipse.equinox.p2.engine 4 0 2019-03-20 09:28:06.618
+!MESSAGE session context was:(profile=C__Users_fabri_eclipse_java-2018-12_eclipse, phase=org.eclipse.equinox.internal.p2.engine.phases.Collect, operand=, action=).
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2019-03-20 09:28:06.618
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.epp.mpc.core,1.7.4.v20190206-1730
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2019-03-20 09:28:06.618
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.epp.mpc.core.win32,1.7.4.v20190206-1730
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2019-03-20 09:28:06.618
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.epp.mpc.help.ui,1.7.4.v20190206-1730
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2019-03-20 09:28:06.618
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.epp.mpc.ui,1.7.4.v20190206-1749
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2019-03-20 09:28:06.618
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.epp.mpc.ui.css,1.7.4.v20190206-1730
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2019-03-20 09:28:06.618
+!MESSAGE No repository found containing: org.eclipse.update.feature,org.eclipse.epp.mpc,1.7.4.v20190206-1749
+
+!ENTRY org.eclipse.equinox.p2.engine 4 4 2019-03-20 09:28:06.618
+!MESSAGE An error occurred while collecting items to be installed
+!SUBENTRY 1 org.eclipse.equinox.p2.engine 4 0 2019-03-20 09:28:06.618
+!MESSAGE session context was:(profile=C__Users_fabri_eclipse_java-2018-12_eclipse, phase=org.eclipse.equinox.internal.p2.engine.phases.Collect, operand=, action=).
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2019-03-20 09:28:06.618
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.epp.mpc.core,1.7.4.v20190206-1730
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2019-03-20 09:28:06.618
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.epp.mpc.core.win32,1.7.4.v20190206-1730
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2019-03-20 09:28:06.618
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.epp.mpc.help.ui,1.7.4.v20190206-1730
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2019-03-20 09:28:06.618
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.epp.mpc.ui,1.7.4.v20190206-1749
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2019-03-20 09:28:06.618
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.epp.mpc.ui.css,1.7.4.v20190206-1730
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2019-03-20 09:28:06.618
+!MESSAGE No repository found containing: org.eclipse.update.feature,org.eclipse.epp.mpc,1.7.4.v20190206-1749
