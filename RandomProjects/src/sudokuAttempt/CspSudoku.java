@@ -36,7 +36,7 @@ public class CspSudoku {
 		System.out.println();
 	}
 	
-	private static void buildBoard(int[][] table) {
+	private static void makeBoard(int[][] table) {
 		for(int row = 0; row < 9; row++) {
 			for(int col = 0; col < 9; col++) {
 				board[row][col] = table[row][col];
@@ -64,22 +64,40 @@ public class CspSudoku {
 		return true;
 	}
 	
-	//checks if number is in its 3x3 subboard
+	//checks if number is in its 3x3 sub board
 	private static boolean isNotInSubBoard(int num, int row, int col) {
-		int tempR =  row - (row%3);
-		int tempC = col - (col%3);
-		for (int subRow = tempR; subRow < tempR + 3; subRow++) {
-			for (int subCol = tempC; subCol < tempC + 3; subCol++) {
+		//sets the starting row and column of the sub board
+		int startR =  row - (row%3);
+		int startC = col - (col%3);
+		//iterates through the sub board searching for the number
+		for (int subRow = startR; subRow <= startR + 2; subRow++) {
+			for (int subCol = startC; subCol <= startC + 2; subCol++) {
 				if(board[subRow][subCol] == num) {
-					return true;
+					return false;
 				}
 			}
 		}
-		return false;
+		return true;
+	}
+
+	
+	//backtracking solving method
+	private static void solveBoard(int[][] table) {
+		//iterates through the entire board
+		for (int row = 0; row < 9; row++) {
+			for(int col = 0; col < 9; col++) {
+				//finds an empty cell
+				if(table[row][col] == 0) {
+					//test all numbers, 1 through 9
+					for(int n = 1; n <=9; n++) {
+						//checks to see if the number meets the constraints
+						if(isNotInRow(n, row) && isNotInCol(n, col) && isNotInSubBoard(n, row, col)) {
+							
+						}
+					}
+				}
+			}
+		}
 	}
 	
-	//checks to see if all conditions have been met
-	private static boolean thisNumWorks(int row, int col, int num) {
-		return (isNotInRow(num, row) && isNotInCol(num, col) && isNotInSubBoard(num, row, col));
-	}
 }
