@@ -7,7 +7,9 @@ package sudokuAttempt;
  * 
  * @author fabri
  * @date 14 March 2019
+ * @status SUCCESS
  */
+import javax.swing.JOptionPane;
 public class CspSudoku {
 	//This is the board that is actually going to get solved:
 	private static int[][] board = new int[9][9];
@@ -28,9 +30,26 @@ public class CspSudoku {
 		{9,0,0,8,7,4,2,1,0},
 	};
 	
+	//user inputs each individual table value
+	private static int[][] getInputTable() {
+		int [][] inputTable = new int[9][9];
+		JOptionPane.showMessageDialog(null,"Instructions: fill in the table from left to right, top to bottom.\nType quit if you want to leave");
+		String input  = "";
+		for(int row = 0; row < inputTable.length; row++) {
+			for(int col = 0; col < inputTable[row].length; col++) {
+				input = JOptionPane.showInputDialog("Value at row "+(row+1)+" col "+ (col +1)+":");
+				if(input.equals("quit") || input.equals("Quit") || input.equals("QUIT")) {
+					return inputTable;
+				}else{
+					inputTable[row][col] = Integer.parseInt(input);
+				}
+			}
+		}
+		return inputTable;
+	}
+	
 	// Just in case i need to print the table out at a certain point
 	private static void printBoard() {
-		System.out.println("Board to Solve:");
 		for(int row = 0; row < board.length; row++) {
 			for(int col = 0; col < board[row].length; col++) {
 				System.out.print(board[row][col] + " ");
@@ -85,7 +104,7 @@ public class CspSudoku {
 	}
 
 	//backtracking solving method
-	private static void solveBoard() {
+	private static boolean solveBoard() {
 		//iterates through the entire board
 		for (int row = 0; row < 9; row++) {
 			for(int col = 0; col < 9; col++) {
@@ -97,19 +116,28 @@ public class CspSudoku {
 						if(isNotInRow(n, row) && isNotInCol(n, col) && isNotInSubBoard(n, row, col)) {
 							board[row][col] = n;
 							//now starts the process over again
-							solveBoard();
+							if(solveBoard()) {
+								return true;
+							}else {
+								//resets the cell to zero
+								board[row][col] = 0;
+							}
 						}
 					}
+					iterNum++;
+					//if there are no solutions, return false
+					return false;
 				}
 			}
 		}
-		//adds one for every iteration
-		iterNum++;
+		//puzzle is done
+		return true; 
 	}
 	
 	public static void main(String[] args) {
 		iterNum = 0;
-		makeBoard(testTable);
+		System.out.println("Board to solve: ");
+		makeBoard(getInputTable());
 		printBoard();
 		solveBoard();
 		printBoard();
