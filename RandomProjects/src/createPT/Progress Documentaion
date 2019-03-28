@@ -1,0 +1,24 @@
+DOCUMENTAION
+
+On this text file I will be documenting my progress with the Create Performance Task
+Program and file started: 28 March 2019
+Author: Piero Orderique
+
+28 March 2019
+
+	11:20 am
+	Right off the back I faced a problem: How I get user input from a selection of choices?
+	In this case I just want the user to select the difficulty of the board: easy, medium, or hard.
+	SOLUTION: I found that importing javax.swing.JComboBox allows me to do just that
+		boolean problemSolved = true;
+		
+	12:00pm
+	JComboBox has proven to take a bit more time to set up than I expected. I had to end up importing
+	all javax.swing, javax.awt, and javax.awt.event. I learned that these components help developers 
+	build Graphical User Interfaces (GUIs). Had to learn a variety of methods and look at examples 
+	from Oracle in order to get the whole thing set up.
+	
+	12:30pm
+	Decided to add a text label to give the user feedback when they select a difficulty. This wasn't
+	to difficult but I didn't know how to do it so I had to look up the methods for it. Found out
+	that I just needed to create a JLabel for it and that was all. 
