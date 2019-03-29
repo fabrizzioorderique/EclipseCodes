@@ -5,6 +5,8 @@ import MathPacket.Gcf;  //In order to use a class from another project, you have
 public class TestRunner {
 	
 	public static void main(String[] args) {
+		Gcf g = new Gcf(5,3);
+		System.out.println(g.calculateGcf(8,4));
 		int x = 0;
 		do {
 			x++;

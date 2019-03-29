@@ -100,7 +100,6 @@ public class SudokuGame extends JFrame implements ActionListener{
 				text.setText("Error");
 			}
 			HaveUserSolveIt();
-			endProgram();
 		}	
 	}
 	
@@ -110,7 +109,8 @@ public class SudokuGame extends JFrame implements ActionListener{
 		while(true) {
 			input = JOptionPane.showInputDialog("Type quit to exit, or just hit enter to continue");
 			if(input.equals("quit") || input.equals("Quit") || input.equals("QUIT")) {
-				break;
+				JOptionPane.showMessageDialog(null, "Don't give up! Play again!");
+				return;
 			}
 			int row = Integer.parseInt(JOptionPane.showInputDialog("Enter row"));
 			int col = Integer.parseInt(JOptionPane.showInputDialog("Enter col"));
@@ -130,7 +130,9 @@ public class SudokuGame extends JFrame implements ActionListener{
 				break;
 			}
 		}
+		endProgram();
 	}
+	
 	//Checks for any empty cells left in board
 	private boolean ZerosLeft() {
 		for(int row = 0; row < board.length; row++) {
@@ -143,9 +145,11 @@ public class SudokuGame extends JFrame implements ActionListener{
 	
 	//checks to for duplicates in row
 	private boolean rowOk(int num, int row) {
+		int duplicate = 0;
 		for (int i = 0; i < board[row].length; i++) {
 			if(board[row][i] == num) {
-				return false;
+				duplicate++;
+				if(duplicate > 1) return false;
 			}
 		}
 		return true;
@@ -153,9 +157,11 @@ public class SudokuGame extends JFrame implements ActionListener{
 
 	//checks for duplicates in column
 	private boolean colOk(int num, int col) {
+		int duplicate = 0;
 		for (int i = 0; i < board.length; i++) {
 			if(board[i][col] == num) {
-				return false;
+				duplicate++;
+				if(duplicate > 1) return false;
 			}
 		}
 		return true;
@@ -163,6 +169,7 @@ public class SudokuGame extends JFrame implements ActionListener{
 	
 	//checks for duplicates in 3x3 sub grid
 	private boolean subGridOk(int num, int row, int col){
+		int duplicate = 0;
 		//sets the starting row and column of the sub board
 		int startR =  row - (row%3);
 		int startC = col - (col%3);
@@ -170,7 +177,8 @@ public class SudokuGame extends JFrame implements ActionListener{
 			for (int subRow = startR; subRow <= startR + 2; subRow++) {
 				for (int subCol = startC; subCol <= startC + 2; subCol++) {
 					if(board[subRow][subCol] == num) {
-						return false;
+						duplicate++;
+						if(duplicate > 1) return false;
 					}
 				}
 			}
@@ -190,7 +198,8 @@ public class SudokuGame extends JFrame implements ActionListener{
 	private boolean isSolved() {
 		for(int row = 0; row < 9; row++) {
 			for(int col = 0; col < 9; col++) {
-				if(!numWorks(board[row][col],row,col)) {
+				int num = board[row][col];
+				if(!numWorks(num,row,col)) {
 					return false;
 				}
 			}
@@ -200,10 +209,10 @@ public class SudokuGame extends JFrame implements ActionListener{
 	
 	//Checks isSolved in order to end the program
 	private void endProgram() {
-		if(isSolved()) {
-			JOptionPane.showMessageDialog(null, "Congratulations! You've solved it! Play again soon!");
-		}else {
+		if(!isSolved()) {
 			JOptionPane.showMessageDialog(null, "Not quite. You'll get it next time!");
+		}else {
+			JOptionPane.showMessageDialog(null, "Congratulations! You've solved it! Play again soon!");		
 		}
 	}
 

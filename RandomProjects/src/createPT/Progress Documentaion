@@ -30,3 +30,22 @@ Author: Piero Orderique
 	wanted to exit the program and then have a boolean change if that string ever equaled "quit", or 
 	if there were no more empty cells left to fill. I found that it would be a lot cleaner to just use 
 	break; and that will exit the while loop.
+	
+29 March 2019
+
+	9:30am 
+	Had to fix the checking boolean methods (rowOk, colOk, subGridOk) because they weren't returning
+	what they meant to return. I fixed them by adding some local variables to keep track of duplicates
+	in the row/col/subGrid
+	
+	10:00am
+	I modified my endProgram() method because if the user decided to quit before finishing the board, 
+	then the program would say tell the player that their solution was wrong. This is already obvious
+	to the user since they know it's wrong because they didn't finish it; instead I wanted it tell the
+	user not to give up and to play again soon and that's it. 
+	
+	10:30am
+	I changed my endProgram() method back to the way it was. I found that all I had to do was to use
+	return; in haveUserSolveIt(). This would stop the program, and by putting endProgram() inside the 
+	haveUserSolveIt() method, I could make sure that it wasn't called on if the user were to type quit.
+	
