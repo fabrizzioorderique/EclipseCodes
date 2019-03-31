@@ -26,7 +26,7 @@ Author: Piero Orderique
 	6:30pm 
 	I worked on the problems with the HaveUserSolveIt method. I decided to stop trying to use two 
 	classes and instead have all the heavy lifting occurring in the actionPerformed method rather than 
-	the main method.While using the while loop, I originally had a the user type in "quit" if they 
+	the main method. While using the while loop, I originally had a the user type in "quit" if they 
 	wanted to exit the program and then have a boolean change if that string ever equaled "quit", or 
 	if there were no more empty cells left to fill. I found that it would be a lot cleaner to just use 
 	break; and that will exit the while loop.
