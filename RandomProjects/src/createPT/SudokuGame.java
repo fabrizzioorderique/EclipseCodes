@@ -2,7 +2,7 @@
  * Sudoku Game source code
  * This code is my attempt to make a Sudoku game which meets the following criteria:
  * 1) User chooses difficulty of board
- * 2) Given that, the program makes a random board of that diffuculty
+ * 2) Given that, the program makes a random board of that difficulty
  * 3) User attempts to solve it
  * 		a) may use a "autoChecker" feature that helps avoid mistakes
  * 4) Checks to see if the board has been solved --> congratulates the player
@@ -19,7 +19,7 @@ import java.util.Random;
 
 public class SudokuGame extends JFrame implements ActionListener{
 
-	//actual board that will be solved
+	//actual board that will be solved and a declaration
 	private static int[][] board = new int[9][9];
 	
 	//Easy Boards
@@ -161,7 +161,7 @@ public class SudokuGame extends JFrame implements ActionListener{
 					printBoard();
 				}
 			}
-			if(!ZerosLeft()) {
+			if(!zerosLeft()) {
 				break;
 			}
 		}
@@ -169,7 +169,7 @@ public class SudokuGame extends JFrame implements ActionListener{
 	}
 	
 	//Checks for any empty cells left in board
-	private boolean ZerosLeft() {
+	private boolean zerosLeft() {
 		for(int row = 0; row < board.length; row++) {
 			for (int col = 0; col < board[row].length; col++) {
 				if (board[row][col] == 0) return true;

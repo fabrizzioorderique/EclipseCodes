@@ -49,3 +49,7 @@ Author: Piero Orderique
 	return; in haveUserSolveIt(). This would stop the program, and by putting endProgram() inside the 
 	haveUserSolveIt() method, I could make sure that it wasn't called on if the user were to type quit.
 	
+30 March 2019
+	
+	10:00pm
+	Finished the rough draft of the Create Performance Task questions and video is in CSP folder.
