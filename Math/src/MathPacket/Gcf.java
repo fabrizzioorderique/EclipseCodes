@@ -12,10 +12,12 @@ import javax.swing.JOptionPane;
 public class Gcf {
 	private static int gcf;
 	private static String input1,input2;
+	
 	public Gcf(int a, int b) {
 		gcf = calculateGcf(a,b);
 		System.out.println(gcf);
 	}
+	
 	public static int calculateGcf(int a, int b) {
 		int temp;
 		if(a<b) {

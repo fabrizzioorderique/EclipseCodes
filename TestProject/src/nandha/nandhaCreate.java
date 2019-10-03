@@ -19,7 +19,7 @@ import javax.swing.JMenuItem;
 import java.time.format.DateTimeFormatter;
 import java.time.LocalDateTime;
 import javax.swing.JScrollBar;
-public class create {
+public class nandhaCreate {
 
 	private JFrame frame;
 	private JTextField textField;
@@ -31,7 +31,7 @@ public class create {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					create window = new create();
+					nandhaCreate window = new nandhaCreate();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -43,7 +43,7 @@ public class create {
 	
 	 //Create the application.
 	 
-	public create() {
+	public nandhaCreate() {
 		initialize();
 	}
 
