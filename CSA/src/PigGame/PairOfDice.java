@@ -12,9 +12,10 @@ public class PairOfDice
         d1 = new Die();
         d2 = new Die();
     }
-    public void rollPair(){
+    public int rollPair(){
         d1Val = d1.roll();
         d2Val = d2.roll();
+        return d1Val + d2Val;
     }
 }
 
