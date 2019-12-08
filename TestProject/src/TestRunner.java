@@ -44,8 +44,10 @@ public class TestRunner {
 		//m.printMatrix(m.transpose(my3x2));
 		m.printMatrix(m.subtractMatrices(my3x3,myNew3x3));
 	}	
+	
 	//main
 	public static void main(String[] args) {
 		
 	}
+	
 }
