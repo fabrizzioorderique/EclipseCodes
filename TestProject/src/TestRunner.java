@@ -1,8 +1,6 @@
-import java.util.*;
-import javax.swing.JOptionPane;
-import SnakeGame.Entity; //class from another package within the project = packageName.className   
 import MathPacket.Gcf;  //In order to use a class from another project, you have to put the project in the java path dependency
-import MathPacket.Matrices;	
+import MathPacket.Matrices;
+import Josephus.*;
 
 public class TestRunner {
 	
@@ -47,7 +45,11 @@ public class TestRunner {
 	
 	//main
 	public static void main(String[] args) {
-		
+		int i = 0;
+		while(i < 5) {
+			i++;
+		}
+		System.out.println(i);
 	}
 	
 }
