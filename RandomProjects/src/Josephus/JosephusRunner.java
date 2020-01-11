@@ -24,15 +24,15 @@ public class JosephusRunner {
 	}
 	
 	// k represents every kth person dies
-	public static int runGame(int k) {
+	/*public static int runGame(int k) {
 		if(k > people.size()) return -1;
-		/*if(people.size() == 1) return people.get(0).getOgPos();
+		if(people.size() == 1) return people.get(0).getOgPos();
 		//take out every ith person and shift list around. 
 		for(int i = k-1; i < people.size(); i+=k){
 			people.remove(i);
-		}*/
+		}
 		int i = k;
 		while(i < people.size())
 		return runGame(k);
-	}
+	}*/
 }
