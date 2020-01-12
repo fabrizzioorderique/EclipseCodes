@@ -8,5 +8,6 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/Math"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/RandomProjects"/>
+	<classpathentry kind="src" path="/CSA"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

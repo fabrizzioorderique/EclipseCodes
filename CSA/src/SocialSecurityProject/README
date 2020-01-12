@@ -1,0 +1,14 @@
+README
+
+This project is for my AP Computer Science A class. 
+It is meant to be able to read a file downloaded from 
+the Social Security website that contains a list of 
+names and their ranks (based on how popular they were 
+in that year, with the years ranging from 1900 to 2000. 
+
+NOTES:
+
+left to add: 
+Add exception handling where appropriate. 
+(Identify at least one exception other than the
+file issue that you can handle with try and catch.)

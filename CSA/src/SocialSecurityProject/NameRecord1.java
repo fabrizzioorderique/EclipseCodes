@@ -26,7 +26,7 @@ public class NameRecord1 {
 	
 	public int getRank(int decade) {
 		int index;
-		if(decade >= 1900 && decade <= 2000) {
+		if(decade >= 1900 && decade <= 2000 && decade%10==0) {
 			index = (decade - 1900)/10;
 		}else if(decade >= 0 && decade < 11){
 			index = decade;
@@ -37,13 +37,21 @@ public class NameRecord1 {
 	}
 	
 	public int bestYear() {
-		int min = ranks[0];
-		int index = 0;
+		int min = -1;
+		//min needs to be set to the first min that's not zero
 		for(int n : ranks) {
-			if(n < min) min = n;
+			if(n != 0) {
+				min = n;
+				break;
+			}
 		}
+		//now we can focus on actually finding the mean, ignoring zeros
+		for(int n : ranks) {
+			if(n < min && n != 0) min = n;
+		}
+		//now we find the first instance of that min
 		for(int i = 0; i < ranks.length; i++) {
-			if(ranks[i] == min) return i;
+			if(ranks[i] == min) return 1900+10*i;
 		}
 		return -1;
 	}
