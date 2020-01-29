@@ -1,11 +1,9 @@
 package myAPQuestions;
 
 public class TestingCode {
-	
 	public static void main(String[] args) {
-		Email e = new Email("default");
+		LivingObject p1 = new Human("peter");
 
-		e.printThis();
 	}
 }
 
