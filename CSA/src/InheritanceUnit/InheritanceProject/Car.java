@@ -1,5 +1,4 @@
 package InheritanceUnit.InheritanceProject;
-
 public class Car extends Vehicle{
 	//variables specific to cars
 	protected String model;

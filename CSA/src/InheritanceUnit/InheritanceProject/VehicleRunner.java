@@ -1,5 +1,4 @@
 package InheritanceUnit.InheritanceProject;
-
 public class VehicleRunner {
 	public static void main(String[] args) {
 		//Parent class
@@ -29,7 +28,5 @@ public class VehicleRunner {
 		System.out.println(mitchell);
 		mitchell.makeSound();
 		System.out.println();
-
 	}
-
 }

@@ -1,5 +1,4 @@
 package InheritanceUnit.InheritanceProject;
-
 public class Vehicle {
 	//all vehicles created will have these variable
 	protected int numOfWheels;

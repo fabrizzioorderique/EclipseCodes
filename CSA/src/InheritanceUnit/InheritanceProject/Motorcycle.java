@@ -1,5 +1,4 @@
 package InheritanceUnit.InheritanceProject;
-
 public class Motorcycle extends Vehicle{
 	private String model;
 	private String color;

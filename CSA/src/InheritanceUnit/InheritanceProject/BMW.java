@@ -1,5 +1,4 @@
 package InheritanceUnit.InheritanceProject;
-
 public class BMW extends Car{
 	private int topSpeed;
 	public BMW() {
