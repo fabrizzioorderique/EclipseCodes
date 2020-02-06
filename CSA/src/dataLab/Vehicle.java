@@ -1,28 +1,35 @@
 package dataLab;
 
 public class Vehicle {
-	String model,displ,cyl,trans,drive,fuel,certReg,
+	private String make,model,displ,cyl,trans,drive,fuel,certReg,
 	stnd,stndDes,underhood,vehClass,airPoll,cityMPG,
 	hwyMPG,cmbMPG,smartWay;
 	//displ and cyl are actually numbers there are N/A in data 
-	int gGasScore;
+	private float gGasScore;
+	private float combE;
 	
 	//most generic constructor
-	Vehicle(String m, String d, String c, String t, String dr,
+	Vehicle(String ma, String m, String d, String c, String t, String dr,
 			String f, String ce,String s, String sD, String u,
 			String v, String a, String ci, String h, String cm,
-			int g,String sm){
-		model=m;displ=d;cyl=c;trans=t;drive=dr;fuel=f;certReg=ce;
-		stnd=s;stndDes=sD;underhood=u;vehClass=v;airPoll=a;
-		cityMPG=ci;hwyMPG=h;cmbMPG=cm;gGasScore=g;smartWay=sm;
+			float g,float com,String sm){
+		make=ma;model=m;displ=d;cyl=c;trans=t;drive=dr;fuel=f;certReg=ce;
+		stnd=s;stndDes=sD;underhood=u;vehClass=v;airPoll=a;cityMPG=ci;
+		hwyMPG=h;cmbMPG=cm;gGasScore=g;smartWay=sm;combE=com;
 	}
 	//specific constructor to only deal with the model + cmbMPG
-	Vehicle(String model, String cmbMPG){
+	public Vehicle(String make, String model, float combE){
+		this.make = make;
 		this.model = model;
-		this.cmbMPG = cmbMPG;
+		this.combE = combE;
 	}
 	
 	public String toString() {
-		return model+" has "+cmbMPG+" combined miles per gallon";
+		return model+" has "+combE+" combined electricity consumption in kw-hrs/100 miles";
 	}
+	
+	public String getMake() {return make;}
+	public String getModel() {return model;}
+	public float getCombE() {return combE;}
+	
 }
