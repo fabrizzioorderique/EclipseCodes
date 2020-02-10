@@ -30,8 +30,7 @@ public class DL4Runner {
 		System.out.println("TESLA WITH THE LOWEST COMBINED ELECTRICITY COMBUSTION:");
 		System.out.println(bestTesla);
 		//prints out every Tesla in data set with its combE
-		//for(Tesla t : allTesla) {System.out.println(t);}
+		//for(Tesla t : allTeslas) {System.out.println(t);}
 		//ds.printUsageString();
 	}	
 }
-x	
