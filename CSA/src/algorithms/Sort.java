@@ -1,18 +1,20 @@
 package algorithms;
-
+/*
+ * Sorts int arrays in decending order!
+ */
 public class Sort{
     //SELECTION SORT
     public static int[] selectionSort(int[] elements){
       for (int j = 0; j < elements.length - 1; j++){
-         int minIndex = j;
+         int maxIndex = j;
          for (int k = j + 1; k < elements.length; k++){
-            if (elements[k] < elements[minIndex]){
-               minIndex = k;
+            if (elements[k] > elements[maxIndex]){
+               maxIndex = k;
             }
          }
          int temp = elements[j];
-         elements[j] = elements[minIndex];
-         elements[minIndex] = temp;
+         elements[j] = elements[maxIndex];
+         elements[maxIndex] = temp;
        }
       return elements;
    }
@@ -21,7 +23,7 @@ public class Sort{
       for (int j = 1; j < elements.length; j++){
          int temp = elements[j];
          int possibleIndex = j;
-         while (possibleIndex > 0 && temp < elements[possibleIndex - 1]){
+         while (possibleIndex > 0 && temp > elements[possibleIndex - 1]){
             elements[possibleIndex] = elements[possibleIndex - 1];
             possibleIndex--;
          }
@@ -49,7 +51,7 @@ public class Sort{
       int k = from;
 
       while (i <= mid && j <= to){
-         if (elements[i] < elements[j]){
+         if (elements[i] > elements[j]){
             temp[k] = elements[i];
             i++;
          }else{
