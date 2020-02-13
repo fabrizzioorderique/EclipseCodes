@@ -1,22 +1,19 @@
 package algorithms;
 import java.util.Arrays;
 
-public class SortRunner {
-	public static void main(String[] args) {
-		int[] numbers1 = {0,-10,20,-20,10};
-		int[] numbers2 = {3,4,2,0,-342,23,2};
-		int[] numbers3 = {23,52,-324,-3,23,0,324,2,3};
-		System.out.println("Array 1 before sort: " +Arrays.toString(numbers1));
-		System.out.println("Array 2 before sort: " +Arrays.toString(numbers2));
-		System.out.println("Array 3 before sort: " +Arrays.toString(numbers3));
-		System.out.println();
-
-		Sort.selectionSort(numbers1);
-		Sort.insertionSort(numbers2);
-		Sort.mergeSort(numbers3);
-		System.out.println("Array 1 after selection sort: " +Arrays.toString(numbers1));
-		System.out.println("Array 2 after insertion sort: " +Arrays.toString(numbers1));
-		System.out.println("Array 3 after merge sort: " +Arrays.toString(numbers1));
-
-	}
+public class SortRunner{
+   public static void main(String[] args){
+      int[] arr1 = {3,86,-20,14,40,34};
+      int[] arr2 = {-20,3,14,34,40,86};	//sorted descending
+      int[] arr3 = {86,40,34,14,3,-20}; //sorted ascending
+      //test(arr1);
+      //test(arr2);
+      test(arr2);
+   }
+   public static void test(int[] arr){
+      System.out.println("Array Input: " + Arrays.toString(arr));
+      Sort.mergeSort(arr);
+      System.out.println("SORTED LIST: "+Arrays.toString(arr));
+      System.out.println();
+   }
 }

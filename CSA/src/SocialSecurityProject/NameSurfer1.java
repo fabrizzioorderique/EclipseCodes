@@ -25,7 +25,6 @@ public class NameSurfer1 extends JFrame{
 	private String selectedFile;
 	private ArrayList<NameRecord1> nameData = new ArrayList<>(11);
 
-
 	public NameSurfer1() {
 		//sets up input spaces for 
 		JPanel inputpanel = new JPanel(new GridLayout(2,2,10,10));
