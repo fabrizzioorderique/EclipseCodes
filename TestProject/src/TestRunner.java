@@ -1,10 +1,9 @@
 import MathPacket.Gcf;  //In order to use a class from another project, you have to put the project in the java path dependency
 import MathPacket.Matrices;
+import MathPacket.SearchesAndSorts;
 import SocialSecurityProject.NameRecord1;
-import Josephus.*;
 import java.io.File;
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
 
 public class TestRunner {
 	
@@ -47,25 +46,14 @@ public class TestRunner {
 		m.printMatrix(m.subtractMatrices(my3x3,myNew3x3));
 	}	
 	
-	static ArrayList<NameRecord1> nameData = new ArrayList<>(11);
-	public static void main(String[] args) throws Exception {
-		File file = new File("C:\\Users\\fabri\\OneDrive\\Documents\\DasText\\namedata.txt");
-		createData(file);
-	}
-	public static void createData(File f) throws Exception {
-		String currentLine;
-		Scanner sc = new Scanner(f);
-		while (sc.hasNextLine()){ 
-			currentLine = sc.nextLine();
-            nameData.add(new NameRecord1(currentLine));
-        }
-		testArrayData(nameData);
-	}
-	public static void testArrayData(ArrayList<NameRecord1> arr) {
-		for(NameRecord1 n : arr) {
-			System.out.print(n.getName()+" ");
-			n.printRanks();
-			System.out.println();
-		}
+	public static void main(String[] args) {
+		int[] sortedList1 = {1,2,3,4,5,6,7,8,9,10};	//10 entries
+		int[] sortedList2 = {10,20,30,40,50};	//5 entries
+		int[] sortedList3 = {50,40,30,20,10};	//5 entries
+		int[] randomList = {3,46,23,4,1,35,0,343,5};	//9 entries
+		
+		int[] answer = SearchesAndSorts.insertionSort(randomList);
+		System.out.println(Arrays.toString(answer));
+
 	}
 }

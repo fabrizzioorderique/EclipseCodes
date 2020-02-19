@@ -1,9 +1,8 @@
 package algorithms;
 /*
- * Sorts int arrays in decending order!
+ * Sorts int arrays in descending order!
  */
-import java.util.Arrays;
-public class SortAscending{
+public class SortDescending{
    //SELECTION SORT -- n(n - 1) / 2 comparisons no matter what
     public static int[] selectionSort(int[] elements){
       for (int j = 0; j < elements.length - 1; j++){
@@ -32,7 +31,7 @@ public class SortAscending{
       }
       return elements;
     }
-   /******MERGE SORT*******/
+   //MERGE SORT
    public static void mergeSort(int[] elements){
       int n = elements.length;
       int[] temp = new int[n];

@@ -12,7 +12,7 @@ public class SortRunner{
    }
    public static void test(int[] arr){
       System.out.println("Array Input: " + Arrays.toString(arr));
-      Sort.mergeSort(arr);
+      SortDescending.mergeSort(arr);
       System.out.println("SORTED LIST: "+Arrays.toString(arr));
       System.out.println();
    }

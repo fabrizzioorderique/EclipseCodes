@@ -23,6 +23,7 @@
     <fullyQualifiedTypeName name="java.awt.event.ActionListener"/>
     <fullyQualifiedTypeName name="SocialSecurityProject.NameSurfer1.nameSearch"/>
     <fullyQualifiedTypeName name="SocialSecurityProject.NameSurfer1.displayTopRank"/>
-    <fullyQualifiedTypeName name="java.awt.BorderLayout"/>
     <fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="MathPacket.SearchesAndSorts"/>
+    <fullyQualifiedTypeName name="java.awt.BorderLayout"/>
 </qualifiedTypeNameHistroy>
