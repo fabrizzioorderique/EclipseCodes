@@ -47,13 +47,6 @@ public class TestRunner {
 	}	
 	
 	public static void main(String[] args) {
-		int[] sortedList1 = {1,2,3,4,5,6,7,8,9,10};	//10 entries
-		int[] sortedList2 = {10,20,30,40,50};	//5 entries
-		int[] sortedList3 = {50,40,30,20,10};	//5 entries
-		int[] randomList = {3,46,23,4,1,35,0,343,5};	//9 entries
-		
-		int[] answer = SearchesAndSorts.insertionSort(randomList);
-		System.out.println(Arrays.toString(answer));
-
+		System.out.println("he");
 	}
 }
